@@ -1,0 +1,40 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '5000:5000'
+    environment:
+      - PORT=5000
+      - MONGODB_URI=mongodb://mongo:27017/url-shortener
+      - REDIS_URL=redis://redis:6379
+      - JWT_ACCESS_SECRET=docker_compose_super_secret_access_key_12345
+      - JWT_REFRESH_SECRET=docker_compose_super_secret_refresh_key_12345
+      - FRONTEND_URL=http://localhost:5000
+      - NODE_ENV=production
+    depends_on:
+      - mongo
+      - redis
+    restart: always
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+    restart: always
+
+  redis:
+    image: redis:alpine
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-data:/data
+    restart: always
+
+volumes:
+  mongo-data:
+  redis-data:

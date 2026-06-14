@@ -1,0 +1,22 @@
+services:
+  # Express.js Backend Service
+  - type: web
+    name: url-shortener-backend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build --prefix ../frontend && cp -r ../frontend/dist ./public
+    startCommand: node src/server.js
+    rootDir: backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://url-shortener-frontend.vercel.app # Swap with Vercel URL
