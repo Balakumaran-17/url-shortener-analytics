@@ -211,6 +211,18 @@ When showcasing this hackathon app, demonstrate these flows in order:
 5. **Interactive Graphs**: View detailed analytics charts, change browsers/devices, and export visitor click history CSVs.
 6. **Dark Mode toggle**: Toggle themes and verify persistence.
 
+## Demo Login Credentials
+
+Use the following credentials for testing:
+
+Email: demo@example.com # Multiple sample short links are already available in the dashboard after login for testing and evaluation.
+Password:password123
+
+Email:new@user.com # new user
+Password:user123
+
+Note: These are sample credentials created only for evaluation purposes.
+
 # URL Shortener & Analytics Platform
 
 ## Demo Video
