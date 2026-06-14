@@ -197,14 +197,7 @@ docker-compose up --build
 Access the application at `http://localhost:5000`.
 
 ---
-
-## Cloud Deployments
-
-- **Frontend (Vite)**: Optimized for **Vercel** via the included `vercel.json` config containing rewrites for clean single-page routes.
-- **Backend (Express)**: Configured for **Render** via the included `render.yaml` infrastructure blueprint.
-- **Database (MongoDB)**: Provisioned on **MongoDB Atlas** for high-availability production scaling.
-
----
+ 
 
 ## Demo Video Checklist
 
