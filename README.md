@@ -54,42 +54,125 @@ BK is a production-ready, interview-grade URL Shortener and click analytics SaaS
 
 ---
 
-## Local Setup & Installation
+# Local Setup & Installation
 
-### Prerequisite
-Ensure you have Node.js (v18+) and MongoDB installed.
+## Prerequisites
 
-### 1. Backend Setup
-1. Open a terminal in the `backend/` directory:
-   ```bash
-   cd backend
-   npm install
-   ```
-2. Create your `.env` configuration file (already initialized with fallback defaults):
-   ```bash
-   cp .env.example .env
-   ```
-3. Seed the database with mock users, URLs, and time-series visits:
-   ```bash
-   npm run seed
-   ```
-4. Start the backend developer server:
-   ```bash
-   npm run dev
-   ```
-   The backend server will run on `http://localhost:5000`.
+### Option 1: Docker (Recommended)
 
-### 2. Frontend Setup
-1. Open a separate terminal in the `frontend/` directory:
-   ```bash
-   cd frontend
-   npm install
-   ```
-2. Start the Vite React development server:
-   ```bash
-   npm run dev
-   ```
-   Open `http://localhost:5173` in your browser.
+Ensure Docker and Docker Compose are installed.
+
+Start only the database and cache services:
+
+```bash
+docker compose up -d mongodb redis
+```
+
+This will launch MongoDB and Redis containers while keeping port 5000 available for the local Node.js backend.
+
+### Option 2: Local Installation
+
+Ensure the following are installed:
+
+* Node.js v18+
+* MongoDB
+* Redis (optional)
+
+---
+
+## Backend Setup
+
+Open a terminal in the backend directory:
+
+```bash
+cd backend
+npm install
+```
+
+Create environment configuration:
+
+```bash
+cp .env.example .env
+```
+
+Seed the database with sample users, URLs, analytics, and visit history:
+
+```bash
+npm run seed
+```
+
+Start the backend server:
+
+```bash
+npm run dev
+```
+
+Backend URL:
+
+```text
+http://localhost:5000
+```
+
+---
+
+## Frontend Setup
+
+Open a separate terminal:
+
+```bash
+cd frontend
+npm install
+```
+
+Start the React application:
+
+```bash
+npm run dev
+```
+
+Frontend URL:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Docker Recovery Note
+
+If you previously executed:
+
+```bash
+docker compose down
+```
+
+all containers including MongoDB will stop.
+
+Restart only the required services:
+
+```bash
+docker compose up -d mongodb redis
+```
+
+Then restart the backend:
+
+```bash
+npm run dev
+```
+
+The backend will reconnect successfully to MongoDB and Redis.
+
+---
+
+## Default Development URLs
+
+```text
+Frontend: http://localhost:5173
+Backend:  http://localhost:5000
+MongoDB:  mongodb://localhost:27017
+Redis:    redis://localhost:6379
+```
+
 
 ---
 
