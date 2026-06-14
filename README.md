@@ -210,3 +210,11 @@ When showcasing this hackathon app, demonstrate these flows in order:
    - Return to the dashboard and witness the click counter increment.
 5. **Interactive Graphs**: View detailed analytics charts, change browsers/devices, and export visitor click history CSVs.
 6. **Dark Mode toggle**: Toggle themes and verify persistence.
+
+# URL Shortener & Analytics Platform
+
+## Demo Video
+1.Backend demo vedio:
+  https://www.loom.com/share/0330def311584b6d9e140059de712c03
+2.Frontend demo vedio:
+  https://www.loom.com/share/f2e58165dce6476cbe36d1cbd5e2f556
